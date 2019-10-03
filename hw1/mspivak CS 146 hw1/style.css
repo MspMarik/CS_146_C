@@ -1,0 +1,74 @@
+/* 
+  Mark Spivak
+  mspivak
+  I pledge that I have abided by the Stevens Honor System 
+*/
+
+body {
+  background-color: lightgrey;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.content {
+  background-color: white;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  box-shadow: 0px 0px 4px black;
+  border-radius: 4px;
+  width: 600px;
+}
+
+.content th {
+  width: 100px;
+}
+
+th {
+  border-bottom: thin solid #cccccc;
+}
+
+td {
+  border-bottom: thin solid #cccccc;
+}
+
+.event {
+  color: white;
+  border-radius: 6px;
+}
+
+#headers {
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table p {
+  font-size: 11px;
+}
+
+#davidsean {
+  background-color: green;
+}
+
+#robissac {
+  background-color: red;
+}
+
+#timelliot {
+  background-color: blue;
+}
+
+#jacktom {
+  background-color: purple;
+}
+
+#squarelist {
+  list-style: square;
+}
