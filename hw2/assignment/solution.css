@@ -26,7 +26,7 @@ header span {
     margin: 10px;
     height: 100px;
     width: 100px;
-    border: 5px, solid, white;
+    border: 5px solid white;
 }
 
 .posts {
@@ -60,11 +60,17 @@ header span {
     .posts {
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
 
     .post {
         max-width: 800px;
         flex: auto; /*AAAAAAAAAHHHHHHH LOOK AT THIS!!! RESPONSIVE VIEW 1*/
+    }
+
+    .post-pic {
+        height: 200px;
+        width: 200px;
     }
 }
 
@@ -94,6 +100,7 @@ header span {
 
 @media only screen and (max-width: 399px) {
     header {
+        text-align: center;
         flex-direction: column;
     }
 
