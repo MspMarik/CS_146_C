@@ -51,9 +51,10 @@ header span {
 }
 
 .post-pic {
+    margin-right: 10px;
     height: 200px;
     width: 200px;
-    margin-right: 10px;
+   
 }
 
 @media only screen and (min-width: 999px) {
@@ -65,13 +66,10 @@ header span {
 
     .post {
         max-width: 800px;
-        flex: auto; /*AAAAAAAAAHHHHHHH LOOK AT THIS!!! RESPONSIVE VIEW 1*/
+        width: 100%;
     }
 
-    .post-pic {
-        height: 200px;
-        width: 200px;
-    }
+    
 }
 
 @media only screen and (min-width: 400px) and (max-width: 998px) {
