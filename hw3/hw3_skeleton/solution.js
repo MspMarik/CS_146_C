@@ -1,6 +1,7 @@
 var result = 0;
 var currentOp = '';
 var buffer = 0;
+var equalsPressed = false;
 setDisplay('0');
 
 /**
@@ -27,19 +28,29 @@ function setDisplay(str) {
  */
 function getResult() {
 	if (currentOp == '+') {
-		result += buffe;
+		result = buffer + result;
 	}
 	if (currentOp == '-') {
-		result -= buffer;
+		result = buffer - result;
 	}
 	if (currentOp == '*') {
-		result *= buffer;
+		result = buffer * result;
 	}
 	if (currentOp == '/') {
 		if (result == '0' && buffer == '0') {
+			result = 0;
+			buffer = 0;
 			return 'ERROR';
 		}
-		result /= buffer;
+		result = parseInt(buffer / result);
+	}
+
+	if (result > 999999999) {
+		return 999999999;
+	}
+
+	if (result < -999999999) {
+		return -999999999;
 	}
 	return result;
 }
@@ -49,13 +60,19 @@ function getResult() {
  * @param {Number} num the number that was pressed
  */
 function pressNum(num) {
-	if (document.getElementById('output').innerText == '0') {
+	if (document.getElementById('output').innerText == '0' || equalsPressed) {
+		if (currentOp) {
+			buffer = result;
+			result = 0;
+		}
+		equalsPressed = false;
 		setDisplay(num);
 	} else {
-		if (parseInt(document.getElementById('output').innerText) < 999999999) {
+		if (document.getElementById('output').innerText.length <= 8) {
 			setDisplay(document.getElementById('output').innerText + num);
 		}
 	}
+	result = parseInt(document.getElementById('output').innerText);
 }
 
 /**
@@ -64,9 +81,7 @@ function pressNum(num) {
  * @param {String} op the operation pressed, either: +,-,*,/
  */
 function pressOp(op) {
-	buffer = result;
-	result = 0;
-	setDisplay(result);
+	setDisplay('0');
 	currentOp = op;
 }
 
@@ -77,6 +92,10 @@ function pressOp(op) {
  */
 function pressEquals() {
 	if (currentOp) {
+		let a = result;
 		setDisplay(getResult());
+		buffer = result;
+		result = a;
+		equalsPressed = true;
 	}
 }
