@@ -73,13 +73,13 @@ function pressOp(op) {
  */
 function pressEquals() {
 	if (currentOp == '+') {
-		result = buffer + result;
+		result = Math.floor(buffer + result);
 		setDisplay(result);
 	} else if (currentOp == '-') {
-		result = buffer - result;
+		result = Math.floor(buffer - result);
 		setDisplay(result);
 	} else if (currentOp == '*') {
-		result = buffer * result;
+		result = Math.floor(buffer * result);
 		setDisplay(result);
 	} else if (currentOp == '/') {
 		if (result == '0' && buffer == '0') {
@@ -88,7 +88,7 @@ function pressEquals() {
 			setDisplay('ERROR');
 			return 'ERROR';
 		}
-		result = parseInt(buffer / result);
+		result = Math.floor(buffer / result);
 		setDisplay(result);
 	} else if (result > 999999999) {
 		setDisplay('999999999');
